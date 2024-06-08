@@ -5,10 +5,6 @@ import MagicButton from "./ui/MagicButton";
 import Image from "next/image";
 
 const Footer = () => {
-  const openInNewTab = (url: string) => {
-    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
-    if (newWindow) newWindow.opener = null;
-  };
   return (
     <footer className="w-full pb-10 mb-[100px] md:mb-5" id="contact">
       <div className="flex flex-col items-center">

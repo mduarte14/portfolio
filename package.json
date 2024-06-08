@@ -1,8 +1,11 @@
 {
+  "homepage": "http://mduarte14.github.io/portfolio",
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start-gh": "react-scripts start",
+    "predeploy": "npm run build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

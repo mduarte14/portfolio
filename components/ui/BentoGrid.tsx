@@ -1,9 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBg";
+
 import { GlobeDemo } from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
@@ -50,6 +51,10 @@ export const BentoGridItem = ({
   const rightLists = ["C#", "Azure", "GraphQL"];
 
   const [copied, setCopied] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const defaultOptions = {
     loop: copied,
@@ -61,9 +66,11 @@ export const BentoGridItem = ({
   };
 
   const handleCopy = () => {
-    const text = "duartemiguel04@gmail.com";
-    navigator.clipboard.writeText(text);
-    setCopied(true);
+    if (isClient) {
+      const text = "duartemiguel04@gmail.com";
+      navigator.clipboard.writeText(text);
+      setCopied(true);
+    }
   };
 
   return (
@@ -98,7 +105,6 @@ export const BentoGridItem = ({
             <img
               src={spareImg}
               alt={spareImg}
-              //   width={220}
               className="object-cover object-center w-full h-full"
             />
           )}
